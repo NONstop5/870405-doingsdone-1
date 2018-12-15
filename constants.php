@@ -3,4 +3,4 @@
 $host = 'localhost';
 $dbUserName = 'root';
 $dbUserPassw = '';
-$dbName = 'doingsdone';
+$dbName = 'doingsdone-1';
