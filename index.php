@@ -53,11 +53,11 @@ if (isset($_GET['task_filter'])) {
     $taskFilterQuery = getTaskFilterQuery($_GET);
 }
 
-if (isset($_POST['submit']) && isset($_POST['search'])) {
-    $taskSearchStr = clearUserInputStr($_POST['search']);
+if (isset($_GET['submit']) && isset($_GET['search'])) {
+    $taskSearchStr = clearUserInputStr($_GET['search']);
 
     if (!empty($taskSearchStr)) {
-        $taskSearchQuery = ' AND MATCH(task_name) AGAINST(\'' . escapeSql($dbConn, $taskSearchStr) . '\' IN NATURAL LANGUAGE MODE)';
+        $taskSearchQuery = ' AND MATCH(task_name) AGAINST(\'' . escapeSql($dbConn, $taskSearchStr) . '\' IN BOOLEAN MODE)';
     }
 }
 
