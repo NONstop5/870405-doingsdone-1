@@ -55,6 +55,7 @@ if (isset($_GET['task_filter'])) {
 
 if (isset($_POST['submit']) && isset($_POST['search'])) {
     $taskSearchStr = clearUserInputStr($_POST['search']);
+
     if (!empty($taskSearchStr)) {
         $taskSearchQuery = ' AND MATCH(task_name) AGAINST(\'' . escapeSql($dbConn, $taskSearchStr) . '\' IN NATURAL LANGUAGE MODE)';
     }
