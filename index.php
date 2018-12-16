@@ -70,7 +70,7 @@ $sql = 'SELECT projects.project_id, projects.project_name, COUNT(tasks.task_id) 
         GROUP BY projects.project_id';
 $projects = getAssocArrayFromSQL($dbConn, $sql);
 
-$sql = 'SELECT task_id, task_name, DATE_FORMAT(task_deadline, \'%d.%m.%Y\') as task_deadline, task_complete_status, task_file
+$sql = 'SELECT task_id, task_name, DATE_FORMAT(task_deadline, \'%d.%m.%Y %H:%i\') as task_deadline, task_complete_status, task_file
         FROM tasks
         WHERE user_id = ' . $currentUserId . $projectFilterQuery . $taskFilterQuery . $taskSearchQuery . ' ORDER BY task_id DESC';
 $tasks = getAssocArrayFromSQL($dbConn, $sql);
