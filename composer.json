@@ -1,0 +1,13 @@
+{
+    "name": "htmlacademy/doingsdone-1",
+    "authors": [
+        {
+            "name": "NONstop5",
+            "email": "non_2002@mail.ru"
+        }
+    ],
+    "description": "Дела в порядке",
+    "require": {
+        "swiftmailer/swiftmailer": "^6.0"
+    }
+}

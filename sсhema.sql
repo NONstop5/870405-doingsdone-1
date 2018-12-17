@@ -1,5 +1,5 @@
-CREATE DATABASE `doingsdone` COLLATE='utf8_general_ci';
-USE `doingsdone`;
+CREATE DATABASE `doingsdone-1` COLLATE='utf8_general_ci';
+USE `doingsdone-1`;
 
 CREATE TABLE `projects` (
   `project_id` int(11) NOT NULL AUTO_INCREMENT,

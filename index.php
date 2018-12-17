@@ -53,11 +53,11 @@ if (isset($_GET['task_filter'])) {
     $taskFilterQuery = getTaskFilterQuery($_GET);
 }
 
-if (isset($_POST['submit']) && isset($_POST['search'])) {
-    $taskSearchStr = clearUserInputStr($_POST['search']);
+if (isset($_GET['submit']) && isset($_GET['search'])) {
+    $taskSearchStr = clearUserInputStr($_GET['search']);
 
     if (!empty($taskSearchStr)) {
-        $taskSearchQuery = ' AND MATCH(task_name) AGAINST(\'' . escapeSql($dbConn, $taskSearchStr) . '\' IN NATURAL LANGUAGE MODE)';
+        $taskSearchQuery = ' AND MATCH(task_name) AGAINST(\'' . escapeSql($dbConn, $taskSearchStr) . '\' IN BOOLEAN MODE)';
     }
 }
 
@@ -70,7 +70,7 @@ $sql = 'SELECT projects.project_id, projects.project_name, COUNT(tasks.task_id) 
         GROUP BY projects.project_id';
 $projects = getAssocArrayFromSQL($dbConn, $sql);
 
-$sql = 'SELECT task_id, task_name, task_deadline, task_complete_status, task_file
+$sql = 'SELECT task_id, task_name, DATE_FORMAT(task_deadline, \'%d.%m.%Y %H:%i\') as task_deadline, task_complete_status, task_file
         FROM tasks
         WHERE user_id = ' . $currentUserId . $projectFilterQuery . $taskFilterQuery . $taskSearchQuery . ' ORDER BY task_id DESC';
 $tasks = getAssocArrayFromSQL($dbConn, $sql);
