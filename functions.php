@@ -1,7 +1,7 @@
 <?php
 
 /**
- * includeTemplate - Шаблонизация страниц сайта
+ * Шаблонизация страниц сайта
  *
  * @param  string $name Имя файла-шаблона страницы
  * @param  array $data Данные для вставки в файл шаблона страницы
@@ -27,7 +27,7 @@ function includeTemplate($name, $data)
 }
 
 /**
- * connectDb - Подключния к БД
+ * Подключние к БД
  *
  * @param  string $host Имя хоста
  * @param  string $userName Имя пользователя БД
@@ -48,7 +48,7 @@ function connectDb($host, $userName, $userPassw, $dbName)
 }
 
 /**
- * redirectGuest - Переадресации гостей сайта
+ * Переадресация гостей сайта
  *
  * @return void
  */
@@ -59,7 +59,7 @@ function redirectGuest()
 }
 
 /**
- * showGuestPage - Проверка сессии пользователя
+ * Проверка сессии пользователя
  *
  * @return void
  */
@@ -71,7 +71,7 @@ function showGuestPage()
 }
 
 /**
- * endSession - Очистка сессии пользователя
+ * Очищает сессию пользователя
  *
  * @return void
  */
@@ -85,7 +85,7 @@ function endSession()
 }
 
 /**
- * getCurrentUserData - Получает данные текущего пользователя по id
+ * Получает данные текущего пользователя по id
  *
  * @param  mysqli_connect $dbConn Ссылка на соединение с БД
  * @param  int $userId Id текущего пользователя
@@ -101,7 +101,7 @@ function getCurrentUserData($dbConn, $userId)
 }
 
 /**
- * getTaskFilterQuery - Формирует строку SQL-запроса для фильтрации отображения задач
+ * Формирует строку SQL-запроса для фильтрации отображения задач
  *
  * @param  array $get_array Массив параметров GET
  *
@@ -128,7 +128,7 @@ function getTaskFilterQuery($get_array)
 }
 
 /**
- * generateGetParamForUrl - Генерации GET параметров строки запроса
+ * Генерация GET параметров строки запроса
  *
  * @param  array $paramList Массив параметров, для формиирования строки GET запроса
  *
@@ -153,7 +153,7 @@ function generateGetParamForUrl($paramList)
 }
 
 /**
- * execSql - Обработка запроса к БД
+ * Обработка запроса к БД
  *
  * @param  mysql_connect $dbConn Ссылка на соединение с БД
  * @param  string $sql Строка SQL-запроса
@@ -172,7 +172,7 @@ function execSql($dbConn, $sql)
 }
 
 /**
- * escapeSql - Экранирование значений для подстановки в SQL-запрос
+ * Экранирование значений для подстановки в SQL-запрос
  *
  * @param  mysql_connect $dbConn Ссылка на соединение с БД
  * @param  string $sqlStr Строка для экранирования
@@ -184,7 +184,7 @@ function escapeSql($dbConn, $sqlStr) {
 }
 
 /**
- * getAssocArrayFromSQL - Создание ассоциативного массива из запроса к БД
+ * Создание ассоциативного массива из запроса к БД
  *
  * @param  mysql_connect $dbConn Ссылка на соединение с БД
  * @param  string $sql Строка SQL-запроса
@@ -198,7 +198,7 @@ function getAssocArrayFromSQL($dbConn, $sql)
 }
 
 /**
- * startSession - Старт сессии пользователя
+ * Стартует сессию пользователя
  *
  * @param  string $userId Id пользователя
  *
@@ -211,7 +211,7 @@ function startSession($userId)
 }
 
 /**
- * getNewUserInsertSql - Создает SQL запрос на добавление нового пользователя
+ * Создает SQL запрос на добавление нового пользователя
  *
  * @param  string $userEmail Пользовательский e-mail
  * @param  string $userPassword Пароль пользователя
@@ -235,7 +235,7 @@ function getNewUserInsertSql($userEmail, $userPassword, $userName)
 }
 
 /**
- * getProjectInsertSql - Создает SQL запрос на добавление новой задачи
+ * Создает SQL запрос на добавление новой задачи
  *
  * @param  int $currentUserId Id теекущего пользователя
  * @param  string $projectName Имя текущего пользователя
@@ -256,7 +256,7 @@ function getProjectInsertSql($currentUserId, $projectName)
 }
 
 /**
- * getTaskInsertSql - Создает SQL запрос на добавление новой задачи
+ * Создает SQL запрос на добавление новой задачи
  *
  * @param  int $currentUserId Id текущего пользователя
  * @param  int $projectId Id проекта
@@ -301,7 +301,7 @@ function getTaskInsertSql($currentUserId, $projectId, $taskName, $taskCompleteDa
 }
 
 /**
- * convertDateToTimestampSqlFormat - Конвертирует дату в формат даты Timestamp mySQL
+ * Конвертирует дату в формат даты Timestamp mySQL
  *
  * @param  string $dateStr Строковое значение даты
  *
@@ -313,7 +313,7 @@ function convertDateToTimestampSqlFormat($dateStr)
 }
 
 /**
- * checkDateFormat - Проверка корректности формата даты
+ * Проверка корректности формата даты
  *
  * @param  string $dateStr Строковое значение даты
  *
@@ -335,7 +335,7 @@ function checkDateFormat($dateStr)
 }
 
 /**
- * clearUserInputStr - Удаления спецсимволов и пробелов
+ * Удаление спецсимволов и пробелов
  *
  * @param  string $dataStr Строковое значение даты
  *
@@ -347,7 +347,7 @@ function clearUserInputStr($dataStr)
 }
 
 /**
- * setErrorsValues - Заполнение массива ошибок значениями
+ * Заполнение массива ошибок значениями
  *
  * @param  array $fieldValuesArray Массив полей
  * @param  string $fieldName Имя поля
@@ -367,7 +367,7 @@ function setErrorsValues($fieldValuesArray, $fieldName, $errorMessage)
 }
 
 /**
- * createEmptyNewUserFieldValuesArray - Создание пустого массива значений полей нового пользователя
+ * Создание пустого массива значений полей нового пользователя
  *
  * @return array Массив значений полей нового пользователя
  */
@@ -396,7 +396,7 @@ function createEmptyNewUserFieldValuesArray()
 }
 
 /**
- * createEmptyExistingUserFieldValuesArray - Создание пустого массива значений полей существующего пользователя
+ * Создание пустого массива значений полей существующего пользователя
  *
  * @return array Массив значений полей существующего пользователя
  */
@@ -423,7 +423,7 @@ function createEmptyExistingUserFieldValuesArray()
 }
 
 /**
- * createEmptyProjectFieldValuesArray - Создание пустого массива значений полей проекта
+ * Создание пустого массива значений полей проекта
  *
  * @return array Массив значений полей проекта
  */
@@ -448,7 +448,7 @@ function createEmptyProjectFieldValuesArray()
 }
 
 /**
- * createEmptyTaskFieldValuesArray - Создание пустого массива значений полей задачи
+ * Создание пустого массива значений полей задачи
  *
  * @return array Массив значений значений полей задачи
  */
@@ -478,7 +478,7 @@ function createEmptyTaskFieldValuesArray()
 }
 
 /**
- * checkNewUserFields - Проверка полей формы нового пользователя
+ * Проверка полей формы нового пользователя
  *
  * @param  mysqli_connect $dbConn Ссылка на соединение с БД
  * @param  array $postArray Массив значений полей формы
@@ -528,7 +528,7 @@ function checkNewUserFields($dbConn, $postArray)
 }
 
 /**
- * checkExistingUserFields - Проверка полей формы существующего пользователя
+ * Проверка полей формы существующего пользователя
  *
  * @param  mysqli_connect $dbConn Ссылка на соединение с БД
  * @param  array $postArray Массив значений полей формы
@@ -576,7 +576,7 @@ function checkExistingUserFields($dbConn, $postArray)
 }
 
 /**
- * checkProjectFields - Проверка полей формы нового проекта
+ * Проверка полей формы нового проекта
  *
  * @param  mysqli_connect $dbConn Ссылка на соединение с БД
  * @param  int $currentUserId Id текущего пользователя
@@ -607,7 +607,7 @@ function checkProjectFields($dbConn, $currentUserId, $postArray)
 }
 
 /**
- * checkTaskFields - Проверки полей формы новой задачи
+ * Проверка полей формы новой задачи
  *
  * @param  mysqli_connect $dbConn Ссылка на соединение с БД
  * @param  int $currentUserId Id текущего пользователя
