@@ -313,28 +313,6 @@ function convertDateToTimestampSqlFormat($dateStr)
 }
 
 /**
- * Проверка корректности формата даты
- *
- * @param  string $dateStr Строковое значение даты
- *
- * @return boolean Логическое значение
- */
-function checkDateFormat($dateStr)
-{
-    $result = false;
-    $pattern1 = '/^([0-9]{2})\.([0-9]{2})\.([0-9]{4})$/';
-    $pattern2 = '/^([0-9]{4})\-([0-9]{2})\-([0-9]{2})$/';
-    if (preg_match($pattern1, $dateStr, $matches)) {
-        $result = checkdate($matches[2], $matches[1], $matches[3]);
-    }
-    if (preg_match($pattern2, $dateStr, $matches)) {
-        $result = checkdate($matches[2], $matches[3], $matches[1]);
-    }
-
-    return $result;
-}
-
-/**
  * Удаление спецсимволов и пробелов
  *
  * @param  string $dataStr Строковое значение даты
@@ -645,7 +623,7 @@ function checkTaskFields($dbConn, $currentUserId, $postArray, $filesArray)
     }
 
     if (!empty($postDateStr)) {
-        if (!checkDateFormat($postDateStr)) {
+        if (!(!!date_create_from_format('Y-m-d', $postDateStr))) {
             $result = setErrorsValues($result, 'date', 'Введите корректное значение даты');
         }
     }
